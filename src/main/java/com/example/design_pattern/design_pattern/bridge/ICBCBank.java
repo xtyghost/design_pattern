@@ -27,6 +27,7 @@ public  class ICBCBank extends Bank  {
     @Override
     Account openAccount() {
         System.out.println("创建中国工商银行账号");
+        //将开户功能委托个account对象
         account.openAccount();
         return account;
     }
