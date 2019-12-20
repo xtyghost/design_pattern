@@ -57,9 +57,12 @@ public class CyclicBarrier_test {
           () -> {
             try {
               TimeUnit.SECONDS.sleep(10);
-              System.out.printf(
-                  "%s是第%d报道的 \r\n",
-                  Thread.currentThread().getName(), atomicInteger.incrementAndGet());
+              synchronized (cyclicBarrier) {
+                System.out.println(cyclicBarrier.getNumberWaiting());
+                System.out.printf(
+                    "%s是第%d个报道的 \r\n",
+                    Thread.currentThread().getName(), atomicInteger.incrementAndGet());
+              }
               cyclicBarrier.await();
               System.out.println("老板好，老板辛苦了");
             } catch (InterruptedException | BrokenBarrierException e) {

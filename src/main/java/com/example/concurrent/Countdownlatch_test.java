@@ -45,14 +45,15 @@ public class Countdownlatch_test {
 
     CountDownLatch countDownLatch1 = new CountDownLatch(1);
     CountDownLatch countDownLatch2 = new CountDownLatch(10);
+      AtomicInteger counts = new AtomicInteger(0);
 
-    //      factory.prestartAllCoreThreads()
+      //      factory.prestartAllCoreThreads()
     System.out.println("老板，来十份烤鸡，熟的——''--");
     for (int i = 0; i < 10; i++) {
       factory.execute(
           () -> {
             try {
-              countDownLatch1.await();
+              countDownLatch1.await();//此处可能不同步
               TimeUnit.SECONDS.sleep(1);
               System.out.println("a new chicken");
               countDownLatch2.countDown();
