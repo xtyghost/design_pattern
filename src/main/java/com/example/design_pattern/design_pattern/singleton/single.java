@@ -21,5 +21,5 @@ package com.example.design_pattern.design_pattern.singleton;
 public enum single {
     SINGLE;
 
-    private single() {
+    single() {
     }}
