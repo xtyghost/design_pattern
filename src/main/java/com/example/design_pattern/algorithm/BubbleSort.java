@@ -22,7 +22,7 @@ import java.util.Arrays;
  */
 public class BubbleSort {
     /**
-     * 冒泡排序：不停当进行一致性不比较，并保证，最后两位一直性比较通过
+     * 冒泡排序：不停当进行一致性比较，并保证，最后两位一直性比较通过
      *
      * @param inst
      * @return
