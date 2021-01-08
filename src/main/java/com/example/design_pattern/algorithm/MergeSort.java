@@ -11,6 +11,9 @@
 package com.example.design_pattern.algorithm;
 
 import java.util.Arrays;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -34,6 +37,7 @@ public class MergeSort {
         int[] rightInts = sort(Arrays.copyOfRange(source, len, ints.length));
         System.out.println(Arrays.toString(rightInts));
         //将队列分为左右连个队列，分别递归，使用插入排序
+        Executors.newWorkStealingPool();
         return mergeSort(leftInts, rightInts);
     }
 
