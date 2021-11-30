@@ -12,9 +12,6 @@ package com.example.design_pattern.design_pattern.observer;
 
 import lombok.Data;
 
-import java.time.Clock;
-import java.util.Random;
-
 /**
  * 〈一句话功能简述〉<br>
  *
