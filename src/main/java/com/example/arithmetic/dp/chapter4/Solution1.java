@@ -23,7 +23,6 @@ public class Solution1 {
 //        Assert.isTrue(solution.minimumTotal(array2List(triangle1))==1,"error");
 //        Assert.isTrue(solution.minimumTotal(array2List(triangle2))==2,"error");
         List<List<Integer>> wrap = solution.wrap(array2List(triangle1));
-        System.out.println(JSONArray);
 
     }
     public static List<List<Integer>> array2List(Integer[][] triangle){
