@@ -37,7 +37,6 @@ public class MergeSort {
         int[] rightInts = sort(Arrays.copyOfRange(source, len, ints.length));
         System.out.println(Arrays.toString(rightInts));
         //将队列分为左右连个队列，分别递归，使用插入排序
-        Executors.newWorkStealingPool();
         return mergeSort(leftInts, rightInts);
     }
 

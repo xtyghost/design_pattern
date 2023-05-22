@@ -4,9 +4,6 @@
  */
 package com.example.leetcode;
 
-import com.sun.tools.javac.util.List;
-
-import java.util.Arrays;
 import java.util.function.BiPredicate;
 
 /**

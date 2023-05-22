@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 /**
  * 〈一句话功能简述〉<br>
- * 〈快速排序〉
+ * 〈快速排序〉单边快速排序
  *
  * @author xutong
  * @create 2019/8/30
@@ -27,41 +27,51 @@ public class QuickSort {
         return quickSort(ints, 0, ints.length - 1);
     }
 
+    /**
+     * 每一次sort可以确定pivot的位置，所以pivot不用参加下一次排序
+     * @param ints
+     * @param left
+     * @param right
+     * @return
+     */
     private static int[] quickSort(int[] ints, int left, int right) {
         //决定分区
         int cachef = left;
         int cacher = right;
-        int cachem = (left + right) / 2;
+
         if (left >= right) {
             return ints;
         }
-        int mid = ints[left];
+        int pivot = ints[left];
         //将head的作为dumhead
-        for (int i = left + 1; i <= right; ) {
-            if (mid < ints[i]) {
+        for (int i = left+1; i <= right; ) {
+            if (pivot < ints[i]) {
                 //如果大于mid，和尾部交互
                 //索引不变
-                int ex = ints[i];
-                ints[i] = ints[right];
-                ints[right] = ex;
+                swap(ints, right, i);
                 right--;
             } else {
                 //和dumhead进行交互
-                int ex = ints[i];
-                ints[i] = ints[left];
-                ints[left] = ex;
+                swap(ints, left, i);
                 left++;
                 i++;
             }
         }
-        quickSort(ints, cachef, cachem);
+
+        quickSort(ints, cachef, left-1);
         //让mid+加一防止0，1循环
-        quickSort(ints, cachem+1, cacher);
+        quickSort(ints, left+1, cacher);
         return ints;
     }
 
+    private static void swap(int[] ints, int left, int i) {
+        int ex = ints[i];
+        ints[i] = ints[left];
+        ints[left] = ex;
+    }
+
     public static void main(String[] args) {
-        int[] ints = sort(new int[]{2, 6, 1, 2, 213,});
+        int[] ints = sort(new int[]{2, 6, 1, 2, 213,23,6,8});
         System.out.println(Arrays.toString(ints));
     }
 

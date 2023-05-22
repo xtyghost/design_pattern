@@ -19,6 +19,7 @@ import java.util.Arrays;
  * 1到x是另一个无序队列，
  * 从有序队列中找出比要插入数小的值，插入到它后面
  * 如果没有查到开头
+ * 2个有序，3个有序，4个有序。。。。
  *
  * @author xutong
  * @create 2019/8/28
@@ -31,7 +32,7 @@ public class InsertSort3 {
         for (int i = 1; i < ints.length; i++) {
             //记录要插入的数据
             int tmp = ints[i];
-            //从右边开始查找比它小的值
+            //从左边开始查找比它小的值
             int j = i;
             while (j > 0 && ints[j - 1] > tmp) {
                 ints[j] = ints[j - 1];

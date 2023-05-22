@@ -12,6 +12,8 @@ package com.example.consistenthash;
  * @create 2020/10/30
  * @since 1.0.0
  */
+import org.springframework.util.StringUtils;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedMap;
@@ -83,9 +85,9 @@ public class ConsistentHashingVirtualNode {
     }
 //     virtualNode虚拟节点名称要截取一下
 
-//    if (StringUtils.isNotBlank(virtualNode)) {
-//      return virtualNode.substring(0, virtualNode.indexOf("&&"));
-//    }
+    if (virtualNode !=null && !virtualNode.equals("")) {
+      return virtualNode.substring(0, virtualNode.indexOf("&&"));
+    }
     return null;
   }
 
