@@ -10,6 +10,8 @@
  */
 package com.example.design_pattern.design_pattern;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 〈一句话功能简述〉<br>
  * 〈〉
@@ -27,6 +29,11 @@ public class Xtyghost {
         System.out.println("xtyghost在学习前段课程");
 ////        XmlBeanFactory
 //        ConcurrentHashMap
+    }
+
+    public static void main(String[] args) {
+        ReentrantLock reentrantLock = new ReentrantLock();
+
     }
 
 }
