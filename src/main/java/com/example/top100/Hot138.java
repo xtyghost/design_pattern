@@ -2,26 +2,35 @@ package com.example.top100;
 
 import com.alibaba.fastjson.JSONArray;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 复制带随机指针的链表
  */
 public class Hot138 {
-    private static Node Node;
-
-    public static void main(String[] args) {
-        Hot138 hot138 = new Hot138();
-        Node Node = new Node(1);
-        Node.next = new Node(2);
-        Node.next.next = new Node(3);
-//        Node.next.next.next = new Node(4);
-        Node node = hot138.copyRandomList(Node);
-        System.out.println(JSONArray.toJSONString(node));
-
-    }
+    private Map<Node, Node> nodeMap;
 
     public Node copyRandomList(Node head) {
-
-        return head;
+        nodeMap = new HashMap<>();
+        Node node = head;
+        Node dummyHead = new Node(-1);
+        Node copy = dummyHead;
+        while (node != null) {
+            Node value = new Node(node.val);
+            value.random = node.random;
+            dummyHead.next = value;
+            nodeMap.put(node, value);
+            dummyHead = dummyHead.next;
+            node = node.next;
+        }
+        Node result = copy.next;
+        copy = result;
+        while (copy != null) {
+            copy.random = nodeMap.get(copy.random);
+            copy = copy.next;
+        }
+        return result;
     }
 
     public static class Node {
