@@ -1,9 +1,12 @@
 package com.example.studyplan_2;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 最大子数组和，贪心算法
  * @author xutong
  */
+@Slf4j
 public class Q1_53 {
     public static void main(String[] args) {
         int[] ints = {-1};
